@@ -18,7 +18,7 @@ import shinyswatch          # pip install shinyswatch
 
 # Finally, import what we need from other local code files.
 from continuous_location import update_csv_location
-from continuous_location import update_csv_stock
+from continuous_stock import update_csv_stock
 from mtcars_server import get_mtcars_server_functions
 from mtcars_ui_inputs import get_mtcars_inputs
 from mtcars_ui_outputs import get_mtcars_outputs
