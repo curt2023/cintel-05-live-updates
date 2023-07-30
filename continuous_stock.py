@@ -8,6 +8,7 @@ from random import randint
 import pandas as pd
 import yfinance as yf
 from collections import deque
+from dotenv import load_dotenv
 
 # Local imports
 from fetch import fetch_from_url
@@ -16,6 +17,12 @@ from util_logger import setup_logger
 # Set up logger
 logger, log_filename = setup_logger(__file__)
 
+def get_API_key():
+    # Keep secrets in a .env file - load it, read the values.
+    # Load environment variables from .env file
+    load_dotenv()
+    key = os.getenv("OPEN_WEATHER_API_KEY")
+    return key
 
 # Takes company name string and returns stock ticker string
 def lookup_ticker(company):
