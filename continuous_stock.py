@@ -1,100 +1,72 @@
-"""
-Purpose: Illustrate addition of continuous information. 
-
-This is a simple example that uses a deque to store the last 15 minutes of
-temperature readings for three locations.
-
-The data is updated every minute.
-
-Continuous information might also come from a database, a data lake, a data warehouse, or a cloud service.
-
-----------------------------
-Live Stock Price Data
------------------------------
-
-Using Fetch API to get live stock price data from Yahoo Finance.
-
------------------------
-Keeping Secrets Secret
------------------------
-
-Keep secrets in a .env file - load it, read the values.
-Add the .env file to your .gitignore so you don't publish it to GitHub.
-We usually include a .env-example file to illustrate the format.
-
-"""
-
-
-# Standard Library
 import asyncio
 import os
 from pathlib import Path
 from datetime import datetime
 from random import randint
 
-# External Packages
+# Import external packages
 import pandas as pd
 import yfinance as yf
 from collections import deque
+from dotenv import load_dotenv
 
-
-# Local Imports
+# Local imports
 from fetch import fetch_from_url
 from util_logger import setup_logger
 
-# Set up a file logger
+# Set up logger
 logger, log_filename = setup_logger(__file__)
 
+def get_API_key():
+    # Keep secrets in a .env file - load it, read the values.
+    # Load environment variables from .env file
+    load_dotenv()
+    key = os.getenv("OPEN_WEATHER_API_KEY")
+    return key
 
+# Takes company name string and returns stock ticker string
 def lookup_ticker(company):
     stocks_dictionary = {
-        "Cadence Design Systems": "CDNS",
-        "Synopys": "SNPS",
-        "Tractor Supply Company": "TSCO",
-        "Lululemon Ahtletica Inc.": "LULU",
-        "Arch Capital Group Ltd.": "ACGL",
-        "Costco Wholesale Corporation": "COST",
-        "Brown & Brown Inc.": "BRO",
-        "Thermo Fisher Scientific Inc.": "TMO",
-        "CDW Corporation": "CDW",
-        "Intuit Inc.": "INTU",
+        "Tesla Inc": "TSLA",
+        "General Motors Company": "GM",
+        "Toyota Motor Corporation": "TM",
+        "Ford Motor Company": "F",
+        "Honda Motor Co": "HMC",
     }
     ticker = stocks_dictionary[company]
     return ticker
 
-async def get_stock_price(ticker):
+
+# Takes ticker string and returns current stock price (asynchronous)
+async def get_stock_price(ticker: str):
     logger.info("Calling get_stock_price for {ticker}")
-    stock_api_url = f"https://query1.finance.yahoo.com/v7/finance/options/{ticker}"
-    logger.info(f"Calling yfinance_url: {stock_api_url}")
-    result = await fetch_from_url(stock_api_url, "json")
-    logger.info(f"Data from Stock API: {result}")
+    stock_url = f"https://query1.finance.yahoo.com/v7/finance/options/{ticker}"
+    logger.info(f"Calling fetch_from_url for {stock_url}")
+    result = await fetch_from_url(stock_url)
+    logger.info(f"Data for {ticker}: {result.data}")
+    stock = yf.Ticker(ticker)
     #price = result.data["optionChain"]["result"][0]["quote"]["regularMarketPrice"]
-    price = randint(60, 190)  # This is a random number generator for testing
+    price = randint(132, 148)
     return price
 
-# Function to create or overwrite the CSV file with column headings
+
+# Create or overwrite CSV with column headings
 def init_csv_file(file_path):
-    df_empty = pd.DataFrame(
-        columns=["Company", "Ticker", "Time", "Stock_Price"]
-    )
-    df_empty.to_csv(file_path, index=False)    
-    
+    df_empty = pd.DataFrame(columns=["Company", "Ticker", "Time", "Stock_Price"])
+    df_empty.to_csv(file_path, index=False)
+
+
+# Writes new stock info to CSV
 async def update_csv_stock():
-    """Update the CSV file with the latest location information."""
     logger.info("Calling update_csv_stock")
     try:
         companies = [
-            "Cadence Design Systems", 
-            "Synopys", 
-            "Tractor Supply Company", 
-            "Lululemon Ahtletica Inc.", 
-            "Arch Capital Group Ltd.", 
-            "Costco Wholesale Corporation", 
-            "Brown & Brown Inc.", 
-            "Thermo Fisher Scientific Inc.", 
-            "CDW Corporation", 
-            "Intuit Inc.",
-            ]
+            "Tesla Inc",
+            "General Motors Company",
+            "Toyota Motor Corporation",
+            "Ford Motor Company",
+            "Honda Motor Co",
+        ]
         update_interval = 60  # Update every 1 minute (60 seconds)
         total_runtime = 15 * 60  # Total runtime maximum of 15 minutes
         num_updates = 10  # Keep the most recent 10 readings
