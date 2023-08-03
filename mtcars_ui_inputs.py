@@ -27,6 +27,12 @@ def get_mtcars_inputs():
             choices=["ELY MN", "Death Valley CA", "Maryville MO"],
             selected="ELY MN",
         ),
+        ui.input_select(
+        id="MTCARS_COMPANY_SELECT",
+        label="Choose a Company",
+        choices=["Tesla","GMC","Toyota","Ford","Honda"],
+        selected="Honda",
+        ),
         ui.tags.hr(),
         ui.tags.section(
             ui.h3("MT Cars Table"),
