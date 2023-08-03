@@ -58,6 +58,7 @@ def get_mtcars_server_functions(input, output, session):
     # Initialize the values on startup
 
     reactive_location = reactive.Value("ELY MN")
+    reactive_stock = reactive.Value("Honda")
 
     # Previously, we had a single reactive dataframe to hold filtered results
     reactive_df = reactive.Value()
@@ -155,11 +156,27 @@ def get_mtcars_server_functions(input, output, session):
         df = get_mtcars_temp_df()
         logger.info(f"init reactive_temp_df len: {len(df)}")
 
+    @reactive.event(input.MTCARS_COMPANY_SELECT)
+    def _():
+        """Set two reactive values (the location and temps df) when user changes location"""
+        reactive_stock.set(input.MTCARS_COMPANY_SELECT())
+        # init_mtcars_temps_csv()
+        df = get_mtcars_stock_df()
+        logger.info(f"init reactive_stock_df len: {len(df)}")
+
     @reactive.file_reader(str(csv_locations))
     def get_mtcars_temp_df():
         """Return mtcars temperatures pandas Dataframe."""
         logger.info(f"READING df from {csv_locations}")
         df = pd.read_csv(csv_locations)
+        logger.info(f"READING df len {len(df)}")
+        return df
+
+    @reactive.file_reader(str(csv_stocks))
+    def get_mtcars_stock_df():
+        """Return mtcars temperatures pandas Dataframe."""
+        logger.info(f"READING df from {csv_stocks}")
+        df = pd.read_csv(csv_stocks)
         logger.info(f"READING df len {len(df)}")
         return df
 
@@ -197,6 +214,19 @@ def get_mtcars_server_functions(input, output, session):
         )
         plotly_express_plot.update_layout(title="Continuous Temperature (F)")
         return plotly_express_plot
+    
+    @output
+    @render_widget
+    def mtcars_company_chart():
+        df = get_mtcars_stock_df()
+        # Filter the data based on the selected location
+        df_stock = df[df["Company"] == reactive_stock.get()]
+        logger.info(f"Rendering STOCK chart with {len(df_stock)} points")
+        plotly_express_plot2 = px.line(
+            df_stock, x="Time", y="Price", color="Company", markers=True
+        )
+        plotly_express_plot2.update_layout(title="Continuous Stock")
+        return plotly_express_plot2
 
     ###############################################################
 
@@ -212,6 +242,7 @@ def get_mtcars_server_functions(input, output, session):
         mtcars_location_string,
         mtcars_location_table,
         mtcars_location_chart,
+        mtcars_company_chart,
     ]
 
 
