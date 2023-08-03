@@ -31,5 +31,9 @@ def get_mtcars_outputs():
             ui.output_text("mtcars_record_count_string"),
             ui.output_table("mtcars_filtered_table"),
             ui.tags.hr(),
+            ui.h3("Filtered Company: Charts"),
+            output_widget("mtcars_output_widget3"),
+            ui.output_plot("mtcars_plot3"),
+            ui.tags.hr()
         ),
     )
