@@ -59,6 +59,7 @@ def get_mtcars_server_functions(input, output, session):
 
     reactive_location = reactive.Value("ELY MN")
     reactive_stock = reactive.Value("Honda")
+    
 
     # Previously, we had a single reactive dataframe to hold filtered results
     reactive_df = reactive.Value()
@@ -151,17 +152,9 @@ def get_mtcars_server_functions(input, output, session):
     @reactive.event(input.MTCARS_LOCATION_SELECT)
     def _():
         """Set two reactive values (the location and temps df) when user changes location"""
-        reactive_location.set(input.MTCARS_LOCATION_SELECT())
+        reactive_stock.set(input.MTCARS_LOCATION_SELECT())
         # init_mtcars_temps_csv()
         df = get_mtcars_temp_df()
-        logger.info(f"init reactive_temp_df len: {len(df)}")
-
-    @reactive.event(input.MTCARS_COMPANY_SELECT)
-    def _():
-        """Set two reactive values (the location and temps df) when user changes location"""
-        reactive_stock.set(input.MTCARS_COMPANY_SELECT())
-        # init_mtcars_temps_csv()
-        df = get_mtcars_stock_df()
         logger.info(f"init reactive_stock_df len: {len(df)}")
 
     @reactive.file_reader(str(csv_locations))
@@ -172,13 +165,6 @@ def get_mtcars_server_functions(input, output, session):
         logger.info(f"READING df len {len(df)}")
         return df
 
-    @reactive.file_reader(str(csv_stocks))
-    def get_mtcars_stock_df():
-        """Return mtcars temperatures pandas Dataframe."""
-        logger.info(f"READING df from {csv_stocks}")
-        df = pd.read_csv(csv_stocks)
-        logger.info(f"READING df len {len(df)}")
-        return df
 
     @output
     @render.text
@@ -215,6 +201,47 @@ def get_mtcars_server_functions(input, output, session):
         plotly_express_plot.update_layout(title="Continuous Temperature (F)")
         return plotly_express_plot
     
+#################################################
+
+    @reactive.Effect
+    @reactive.event(input.MTCARS_COMPANY_SELECT)
+    def _():
+        """Set two reactive values (the location and temps df) when user changes location"""
+        reactive_stock.set(input.MTCARS_COMPANY_SELECT())
+        # init_mtcars_temps_csv()
+        df = get_mtcars_stock_df()
+        logger.info(f"init reactive_stock_df len: {len(df)}")
+
+    @reactive.file_reader(str(csv_stocks))
+    def get_mtcars_stock_df():
+        """Return mtcars stocks pandas Dataframe."""
+        logger.info(f"READING df from {csv_stocks}")
+        df = pd.read_csv(csv_stocks)
+        logger.info(f"READING df len {len(df)}")
+        return df
+    
+    @output
+    @render.text
+    def mtcars_company_string():
+        """Return a string based on selected location."""
+        logger.info("mtcars_company_stock_string starting")
+        selected = reactive_stock.get()
+        line1 = f"Recent Stock for {selected}."
+        line2 = "Updated once per minute for 15 minutes."
+        line3 = "Keeps the most recent 10 minutes of data."
+        message = f"{line1}\n{line2}\n{line3}"
+        logger.info(f"{message}")
+        return message
+
+    @output
+    @render.table
+    def mtcars_company_table():
+        df = get_mtcars_stock_df()
+        # Filter the data based on the selected location
+        df_stock = df[df["Company"] == reactive_stock.get()]
+        logger.info(f"Rendering TEMP table with {len(df_stock)} rows")
+        return df_stock
+    
     @output
     @render_widget
     def mtcars_company_chart():
@@ -242,6 +269,8 @@ def get_mtcars_server_functions(input, output, session):
         mtcars_location_string,
         mtcars_location_table,
         mtcars_location_chart,
+        mtcars_company_string,
+        mtcars_company_table,
         mtcars_company_chart,
     ]
 
