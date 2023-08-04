@@ -58,7 +58,7 @@ def get_mtcars_server_functions(input, output, session):
     # Initialize the values on startup
 
     reactive_location = reactive.Value("ELY MN")
-    reactive_stock = reactive.Value("Honda")
+    reactive_stock = reactive.Value("Ford Motor Company")
     
 
     # Previously, we had a single reactive dataframe to hold filtered results
@@ -208,7 +208,7 @@ def get_mtcars_server_functions(input, output, session):
     def _():
         """Set two reactive values (the location and temps df) when user changes location"""
         reactive_stock.set(input.MTCARS_COMPANY_SELECT())
-        # init_mtcars_temps_csv()
+        #init_mtcars_temps_csv()
         df = get_mtcars_stock_df()
         logger.info(f"init reactive_stock_df len: {len(df)}")
 
@@ -239,7 +239,7 @@ def get_mtcars_server_functions(input, output, session):
         df = get_mtcars_stock_df()
         # Filter the data based on the selected location
         df_stock = df[df["Company"] == reactive_stock.get()]
-        logger.info(f"Rendering TEMP table with {len(df_stock)} rows")
+        logger.info(f"Rendering Stock table with {len(df_stock)} rows")
         return df_stock
     
     @output

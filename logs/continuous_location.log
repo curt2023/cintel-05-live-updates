@@ -1,7 +1,22 @@
-2023-08-04 03:54:08,241.continuous_location.INFO =============================================================
-2023-08-04 03:54:08,241.continuous_location.INFO Today is 2023-08-04 at 03:54 AM
-2023-08-04 03:54:08,273.continuous_location.INFO This file is running on: nt Windows 10
-2023-08-04 03:54:08,273.continuous_location.INFO The Python version is: 3.11.4
-2023-08-04 03:54:08,273.continuous_location.INFO The active environment path is:   C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\.venv
-2023-08-04 03:54:08,273.continuous_location.INFO The current working directory is: C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates
-2023-08-04 03:54:08,273.continuous_location.INFO =============================================================
+2023-08-04 05:35:08,387.continuous_location.INFO =============================================================
+2023-08-04 05:35:08,427.continuous_location.INFO Today is 2023-08-04 at 05:35 AM
+2023-08-04 05:35:08,469.continuous_location.INFO This file is running on: nt Windows 10
+2023-08-04 05:35:08,469.continuous_location.INFO The Python version is: 3.11.4
+2023-08-04 05:35:08,469.continuous_location.INFO The active environment path is:   C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\.venv
+2023-08-04 05:35:08,469.continuous_location.INFO The current working directory is: C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates
+2023-08-04 05:35:08,469.continuous_location.INFO =============================================================
+2023-08-04 05:35:24,966.continuous_location.INFO Calling update_csv_location
+2023-08-04 05:35:24,966.continuous_location.INFO update_interval: 60
+2023-08-04 05:35:24,966.continuous_location.INFO total_runtime: 900
+2023-08-04 05:35:24,966.continuous_location.INFO num_updates: 10
+2023-08-04 05:35:24,966.continuous_location.INFO Initialized csv file at C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
+2023-08-04 05:35:24,966.continuous_location.INFO Calling get_temperature_from_openweathermap for {lat}, {long}}
+2023-08-04 05:35:24,966.continuous_location.INFO Calling fetch_from_url for https://api.openweathermap.org/data/2.5/weather?lat=47.903237&lon=-91.867087&appid=81579cec5f063b66d5479b9bd4a80b6d&units=imperial
+2023-08-04 05:35:25,594.continuous_location.INFO Data from openweathermap: <fetch.HttpResponse object at 0x000001489F02F8D0>
+2023-08-04 05:35:25,594.continuous_location.INFO Calling get_temperature_from_openweathermap for {lat}, {long}}
+2023-08-04 05:35:25,594.continuous_location.INFO Calling fetch_from_url for https://api.openweathermap.org/data/2.5/weather?lat=36.5323&lon=-116.93&appid=81579cec5f063b66d5479b9bd4a80b6d&units=imperial
+2023-08-04 05:35:25,981.continuous_location.INFO Data from openweathermap: <fetch.HttpResponse object at 0x000001489F08DDD0>
+2023-08-04 05:35:25,981.continuous_location.INFO Calling get_temperature_from_openweathermap for {lat}, {long}}
+2023-08-04 05:35:25,981.continuous_location.INFO Calling fetch_from_url for https://api.openweathermap.org/data/2.5/weather?lat=40.346102&lon=-94.872471&appid=81579cec5f063b66d5479b9bd4a80b6d&units=imperial
+2023-08-04 05:35:26,368.continuous_location.INFO Data from openweathermap: <fetch.HttpResponse object at 0x000001489F08F410>
+2023-08-04 05:35:26,368.continuous_location.INFO Saving temperatures to C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
