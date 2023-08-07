@@ -45,8 +45,8 @@ async def get_stock_price(ticker: str):
     result = await fetch_from_url(stock_url,"json")
     logger.info(f"Data for {ticker}: {result.data}")
     #stock = yf.Ticker(ticker)
-    price = result.data["optionChain"]["result"][0]["quote"]["regularMarketPrice"]
-    #price = randint(132, 148)
+    #price = result.data["optionChain"]["result"][0]["quote"]["regularMarketPrice"]
+    price = randint(132, 148)
     return price
 
 

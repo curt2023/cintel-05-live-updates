@@ -1,36 +1,36 @@
-2023-08-04 05:35:10,150.mtcars_server.INFO =============================================================
-2023-08-04 05:35:10,150.mtcars_server.INFO Today is 2023-08-04 at 05:35 AM
-2023-08-04 05:35:10,150.mtcars_server.INFO This file is running on: nt Windows 10
-2023-08-04 05:35:10,150.mtcars_server.INFO The Python version is: 3.11.4
-2023-08-04 05:35:10,150.mtcars_server.INFO The active environment path is:   C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\.venv
-2023-08-04 05:35:10,150.mtcars_server.INFO The current working directory is: C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates
-2023-08-04 05:35:10,150.mtcars_server.INFO =============================================================
-2023-08-04 05:35:22,089.mtcars_server.DEBUG filter message: Showing 32 of 32 records
-2023-08-04 05:35:22,249.mtcars_server.INFO Starting mtcars_output_widget1
-2023-08-04 05:35:23,464.mtcars_server.INFO Starting mtcars_plot1
-2023-08-04 05:35:24,759.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
-2023-08-04 05:35:24,759.mtcars_server.INFO READING df len 9
-2023-08-04 05:35:24,759.mtcars_server.INFO init reactive_stock_df len: 9
-2023-08-04 05:35:24,774.mtcars_server.INFO mtcars_temperature_location_string starting
-2023-08-04 05:35:24,774.mtcars_server.INFO Recent Temperature in F for ELY MN.
+2023-08-07 12:17:34,232.mtcars_server.INFO =============================================================
+2023-08-07 12:17:34,232.mtcars_server.INFO Today is 2023-08-07 at 12:17 PM
+2023-08-07 12:17:34,232.mtcars_server.INFO This file is running on: nt Windows 10
+2023-08-07 12:17:34,232.mtcars_server.INFO The Python version is: 3.11.4
+2023-08-07 12:17:34,232.mtcars_server.INFO The active environment path is:   C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\.venv
+2023-08-07 12:17:34,235.mtcars_server.INFO The current working directory is: C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates
+2023-08-07 12:17:34,235.mtcars_server.INFO =============================================================
+2023-08-07 12:17:43,094.mtcars_server.DEBUG filter message: Showing 32 of 32 records
+2023-08-07 12:17:43,278.mtcars_server.INFO Starting mtcars_output_widget1
+2023-08-07 12:17:44,882.mtcars_server.INFO Starting mtcars_plot1
+2023-08-07 12:17:50,148.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
+2023-08-07 12:17:50,148.mtcars_server.INFO READING df len 3
+2023-08-07 12:17:50,163.mtcars_server.INFO init reactive_stock_df len: 3
+2023-08-07 12:17:50,163.mtcars_server.INFO mtcars_temperature_location_string starting
+2023-08-07 12:17:50,163.mtcars_server.INFO Recent Temperature in F for ELY MN.
 Updated once per minute for 15 minutes.
 Keeps the most recent 10 minutes of data.
-2023-08-04 05:35:24,774.mtcars_server.INFO Rendering TEMP table with 3 rows
-2023-08-04 05:35:24,782.mtcars_server.INFO Rendering TEMP chart with 3 points
-2023-08-04 05:35:24,846.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_stock.csv
-2023-08-04 05:35:24,846.mtcars_server.INFO READING df len 10
-2023-08-04 05:35:24,846.mtcars_server.INFO init reactive_stock_df len: 10
-2023-08-04 05:35:24,854.mtcars_server.INFO mtcars_company_stock_string starting
-2023-08-04 05:35:24,854.mtcars_server.INFO Recent Stock for Ford Motor Company.
+2023-08-07 12:17:50,163.mtcars_server.INFO Rendering TEMP table with 1 rows
+2023-08-07 12:17:50,182.mtcars_server.INFO Rendering TEMP chart with 1 points
+2023-08-07 12:17:50,242.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_stock.csv
+2023-08-07 12:17:50,242.mtcars_server.INFO READING df len 5
+2023-08-07 12:17:50,242.mtcars_server.INFO init reactive_stock_df len: 5
+2023-08-07 12:17:50,258.mtcars_server.INFO mtcars_company_stock_string starting
+2023-08-07 12:17:50,258.mtcars_server.INFO Recent Stock for Ford Motor Company.
 Updated once per minute for 15 minutes.
 Keeps the most recent 10 minutes of data.
-2023-08-04 05:35:24,854.mtcars_server.INFO Rendering Stock table with 2 rows
-2023-08-04 05:35:24,862.mtcars_server.INFO Rendering STOCK chart with 2 points
-2023-08-04 05:35:28,275.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
-2023-08-04 05:35:28,291.mtcars_server.INFO READING df len 3
-2023-08-04 05:35:28,291.mtcars_server.INFO Rendering TEMP table with 1 rows
-2023-08-04 05:35:28,291.mtcars_server.INFO Rendering TEMP chart with 1 points
-2023-08-04 05:35:28,384.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_stock.csv
-2023-08-04 05:35:28,384.mtcars_server.INFO READING df len 5
-2023-08-04 05:35:28,400.mtcars_server.INFO Rendering Stock table with 1 rows
-2023-08-04 05:35:28,400.mtcars_server.INFO Rendering STOCK chart with 1 points
+2023-08-07 12:17:50,258.mtcars_server.INFO Rendering Stock table with 1 rows
+2023-08-07 12:17:50,258.mtcars_server.INFO Rendering STOCK chart with 1 points
+2023-08-07 12:17:54,279.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_location.csv
+2023-08-07 12:17:54,294.mtcars_server.INFO READING df len 3
+2023-08-07 12:17:54,294.mtcars_server.INFO Rendering TEMP table with 1 rows
+2023-08-07 12:17:54,294.mtcars_server.INFO Rendering TEMP chart with 1 points
+2023-08-07 12:17:54,394.mtcars_server.INFO READING df from C:\Users\ctrog\OneDrive\Documents\Data Analytics Masters\GIT Hub\cintel-05-live-updates\data\mtcars_stock.csv
+2023-08-07 12:17:54,405.mtcars_server.INFO READING df len 5
+2023-08-07 12:17:54,405.mtcars_server.INFO Rendering Stock table with 1 rows
+2023-08-07 12:17:54,421.mtcars_server.INFO Rendering STOCK chart with 1 points

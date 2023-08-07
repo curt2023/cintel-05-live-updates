@@ -15,6 +15,7 @@ import asyncio
 # Then, outside imports (these must be installed into your active Python environment).
 from shiny import App, ui   # pip install shiny
 import shinyswatch          # pip install shinyswatch
+from shiny import App, Inputs, Outputs, Session, reactive, render, ui
 
 # Finally, import what we need from other local code files.
 from continuous_location import update_csv_location
@@ -59,9 +60,7 @@ app_ui = ui.page_navbar(
 )
 
 
-
-
-
+ 
 
 def server(input, output, session):
     """Define functions to create UI outputs."""
